@@ -1,0 +1,53 @@
+{% extends 'core/base.html'%}
+{% load static %}
+{% block content %}
+<div class="container jumbo">
+	<h2 class="text-center alert alert-secondary mt-5"> User Information</h2>
+
+<table class="table table-dark  table-bordered pt-1">
+  
+  <tbody >
+  	{% for f in fm %}
+
+ <tr>
+ 	<td class="text-success">USERNAME</td>
+ 	<td class="px-5 text-warning font-weight-bold">{{f.username}}</td>
+ </tr>
+ <br>
+ <br>
+ <tr>
+ 	<td class="text-success">EMAIL</td>
+ 	<td class="px-5 text-warning font-weight-bold">{{f.email}}</td>
+ </tr>
+ <br>
+ <br>
+<tr>
+	<td class="text-success">FIRSTNAME</td>
+	<td class="px-5 text-warning font-weight-bold">{{f.first_name}}</td>
+</tr>
+<br>
+<br>
+<tr>
+	<td class="text-success">LASTNAME
+	</td>
+	<td class="px-5 text-warning font-weight-bold">{{f.last_name}}</td>
+</tr>
+<br>
+<br>
+<tr>
+	<td class="text-success">YOUR IP ADDRESS</td>
+	<td class="px-5 text-warning font-weight-bold">{{ip}}</td>
+</tr>
+
+
+
+{% endfor %}
+   
+    
+  </tbody>
+</table>
+	
+
+</div>
+{% endblock content %}
+			

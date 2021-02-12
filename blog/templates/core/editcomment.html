@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% block content %}
+<div class="col-sm-12 my-2 jumbo">
+	<form method="POST" fm.sno >
+		{% csrf_token %}
+		{{fm.as_p}}
+		<input type="submit" name="" value="Edit Comment" class="btn btn-success my-2">
+		<a href="{% url 'home'%}" class="btn btn-danger my-2">Cancel</a>
+		
+	</form>
+		
+	
+</div>
+{% endblock %}

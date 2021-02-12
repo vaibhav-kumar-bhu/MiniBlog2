@@ -1,0 +1,122 @@
+{% extends 'core/base.html'%} {% load static %} 
+
+
+            {% block  message %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="container bg-success my-5">
+               <h1> {{message}}</h1>
+                
+            </div>
+             
+            {% endfor %}
+            {% endif %}
+            
+            {% endblock %}
+
+{% block content %}
+<div class="container text-center alert alert-secondary ">
+    <h2>welcome to the homepage </h2>
+</div>
+<div class="col-sm-12 py-3 mx-2">
+   {% if posts %}
+    {% for post in posts %}
+    
+    <div class="jumbotron jumbotron-fluid jumbo border border-success ">
+
+        <div class="container-fluid">
+
+            <h1 class="display-4 text-white"> {{post.title}}  </h1>
+            <p class="text-warning">{{post.description}}</p>
+            <p class="text-success"><b class="float-right">.........posted by  {{post.Name}}</b></p>
+            <br>
+
+
+        </div>
+         <form action="{% url 'comment' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="comment" placeholder="enter comment" class="form-control ">
+            <input type="hidden" name="postsno" value="{{post.id}}" >
+           
+            <input type="submit" name="" value="ADD COMMENT" class="mx-2 btn btn-secondary btn-sm my-2">
+
+        </form>
+        {% for comment in comment %}
+        {% ifequal comment.comment_id  post.id %}
+        <div class="conatiner">
+            <div class="row">
+               
+                <div class="col-md-1">
+                    <h4 class="mx-2 text-success">{{comment.user}}</h4>
+
+                </div>
+                <div class="col-md-8">
+                    <h4 class="font-weight-bold mx-2 text-info">{{comment.comment}}</h4>
+                    
+                </div>
+                <div class="col-md-3">
+                    
+                    {% if request.user.is_authenticated %}
+                    {% ifequal request.user  comment.user %}
+                   
+                    <form action="{% url 'delete' comment.sno %}" method="POST">
+                        {% csrf_token %}
+
+                        <input type="submit" value="Delete" class="btn btn-danger btn-sm" >
+                       <a href="{% url 'editcomment' comment.sno %}" class="btn btn-danger btn-sm">Edit</a>
+                        
+                        
+
+                    </form>
+                    {% endifequal %}
+                    {% endif %}
+                    
+                   
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        
+         
+          {% endifequal %}
+
+        
+       
+        {% endfor %}
+    </div>
+
+
+    {% endfor %} 
+
+    {% else %}
+    <div class="container text-center alert alert-secondary">
+    <h3>OOPS  Not any  posts available! <br>
+    create your new posts Now </h3>
+</div>
+
+    {% endif %}
+
+</div>
+
+      
+
+            
+       
+      
+   
+    </div>
+
+   
+   
+
+
+
+   
+
+
+</div>
+
+{% endblock %}

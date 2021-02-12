@@ -1,0 +1,16 @@
+{% extends 'core/base.html'%}
+
+{% block content %}
+<div class="col-sm-12 py-5 jumbo">
+	<form method="POST" action="{% url 'contact'%}">
+    {% csrf_token %}
+    <h5 ><label for="exampleInputEmail1" class="text-warning">Email Address</label></h5>
+    <input type="email" name="email" class="form-control " id="exampleInputEmail1" placeholder="Enter your Mail"><br>
+    <textarea  class="form-control" name="message" placeholder="Enter your Message"></textarea><br> 
+  <button type="submit" class="btn btn-success ">SEND</button>
+</form>
+	
+</div>
+
+			
+	{% endblock %}

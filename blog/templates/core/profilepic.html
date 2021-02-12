@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>profile pic</title>
+</head>
+<body>
+<h1>welcome to the profile page </h1>
+{% for i in images %}  
+                <li><img src="{{MEDIA_URL}} {{ i.image.url }}"></img></li>
+            {% endfor %}
+</body>
+</html>

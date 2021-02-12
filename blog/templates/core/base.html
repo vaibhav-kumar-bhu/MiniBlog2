@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>base html </title>
+
+	<link rel="stylesheet" type="text/css" href="{% static 'core/css/all.min.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static  'core/css/bootstrap.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'core/css/core.css'%}">
+
+	
+	
+	
+	
+</head>
+<body>
+		
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12">
+				{% include 'core/nav.html'%}
+				
+			</div>
+				
+			
+		</div>
+		
+	</div>
+	<div class="container my-5">
+		
+
+		<div class="row ">
+
+			{% block  message %}
+			
+			{% endblock %}
+			
+			{% block content %}
+
+			
+			
+			{% endblock %}
+			
+			
+		</div>
+			
+		
+	</div>
+
+
+
+
+
+	<script type="text/javascript" src="{% static 'core/js/all.min.js'%}"></script>
+	<script type="text/javascript" src="{% static 'core/js/jquery.js'%}"></script>
+	<script type="text/javascript" src="{% static 'core/js/popper.js'%}"></script>
+	<script type="text/javascript" src="{% static 'core/js/bootstarp.min.js'%}"></script>
+	<script type="text/javascript" src="{% static 'core/js/bootstarp.js'%}"></script>
+
+</body>
+</html>

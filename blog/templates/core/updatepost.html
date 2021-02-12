@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% block content %}
+<div class="col-sm-12 my-5 jumbo">
+	<form method="POST" fm.id >
+		{% csrf_token %}
+		{{fm.as_p}}
+		<input type="submit" name="" value=" update post" class="btn btn-success">
+		<a href="{% url 'dashboard'%}" class="btn btn-danger">back</a>
+		
+	</form>
+		
+	
+</div>
+{% endblock %}

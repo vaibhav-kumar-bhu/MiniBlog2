@@ -1,0 +1,40 @@
+body{
+	
+	background-image:url("blog.jpg"); 
+
+	
+	background-repeat: no-repeat;
+	
+	background-position: center;
+   background-attachment: fixed;
+   background-size:cover;
+   max-width: auto;
+   
+
+   
+
+}
+.jumbo{
+	background-color: rgb(83,81,81);
+	width:100% ;
+	background-size: cover;
+
+	
+
+	}
+
+.colo{
+
+	background-color :blue ;
+	height: 100%;
+	background-size: cover;
+	
+}
+.clr{
+	background-color: rgb(102, 153, 0);
+	height: 25%;
+	
+}
+
+
+
